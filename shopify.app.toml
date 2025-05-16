@@ -3,11 +3,12 @@
 client_id = "51a8626f32af271755c2ce808adb910e"
 name = "qr-code-product"
 handle = "qr-code-product"
-application_url = "https://example.com/"
+application_url = "https://go-recommends-permissions-casio.trycloudflare.com"
 embedded = true
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-04"
@@ -25,7 +26,11 @@ api_version = "2025-04"
 scopes = "write_products"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://go-recommends-permissions-casio.trycloudflare.com/auth/callback",
+  "https://go-recommends-permissions-casio.trycloudflare.com/auth/shopify/callback",
+  "https://go-recommends-permissions-casio.trycloudflare.com/api/auth/callback"
+]
 
 [pos]
 embedded = false

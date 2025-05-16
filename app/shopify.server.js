@@ -7,6 +7,9 @@ import {
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import prisma from "./db.server";
 
+// File cấu hình chính cho Shopify App sử dụng Remix framework
+// Xác thực, lưu trữ, session, webhooks và configs khác 
+
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",

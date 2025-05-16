@@ -5,6 +5,11 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { isbot } from "isbot";
 import { addDocumentResponseHeaders } from "./shopify.server";
 
+
+// Điểm khởi đầu của server-rendering: Render HTML từ React trên server rồi gửi về trình duyệt
+// Khi người dùng gửi yêu cầu đến server (truy cập một route nào đó trong app), Remix render trang bằng React phía server (SSR). File entry.server quy định
+// Cách render React, Xử lý các bot vs người dùng thực, Áp dụng custom response headers từ Shopify, để app hoạt động đúng trong iframe (embedded app)...
+
 export const streamTimeout = 5000;
 
 export default async function handleRequest(

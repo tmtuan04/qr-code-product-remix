@@ -14,9 +14,7 @@ database.sqlite
 .env
 .env.*
 
-
-
-
+note.md
 
 /extensions/*/dist
 

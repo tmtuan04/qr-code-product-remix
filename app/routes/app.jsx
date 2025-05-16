@@ -7,7 +7,12 @@ import { authenticate } from "../shopify.server";
 
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
+// app.jsx chính là một layout dành cho các route đã xác thực (authenticated routes)
+// Những route này thường là các trang nằm bên trong Shopify Admin (nội bộ), không phải là các trang public
+// Nó cấu hình App Bridge và Polaris
+
 export const loader = async ({ request }) => {
+  // If the user isn't authenticated, authenticate.admin handles the necessary redirects. If the user is authenticated, then the method returns an admin object.
   await authenticate.admin(request);
 
   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
